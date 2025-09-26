@@ -10,12 +10,17 @@ body {
   color: #333;
 }
 
+html {
+  scroll-padding-top: 50px;
+  scroll-behavior: smooth;
+}
+
 /* Header */
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1.5rem 2rem; /* agrandi */
   background: #2e7d32;
   color: white;
   position: fixed;
@@ -23,8 +28,26 @@ header {
   top: 0;
   z-index: 1000;
 }
-header .logo {
+.site-name {
+  position: absolute;
+  left: 2rem;
   font-weight: bold;
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+}
+header .logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+header .logo img {
+  height: 60px; /* un peu plus grand */
+  width: auto;
+  display: block;
+}
+nav {
+  margin-left: auto;
 }
 nav ul {
   list-style: none;
@@ -41,9 +64,10 @@ nav a:hover {
 }
 
 /* Hero */
+/* ...existing code... */
 .hero {
   background: url('ressources/Images/fond.webp') center/cover no-repeat;
-  height: 90vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -51,8 +75,10 @@ nav a:hover {
   text-align: center;
   padding: 2rem;
   color: white;
-  margin-top: 60px;
+  padding-top: 90px; /* remplace margin-top par padding-top */
+  /* margin-top: 90px;  <-- supprime cette ligne */
 }
+/* ...existing code... */
 .hero h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
@@ -143,7 +169,7 @@ footer {
     background: #388e3c;
     position: absolute;
     right: 0;
-    top: 60px;
+    top: 90px;
     display: none;
     padding: 1rem;
   }

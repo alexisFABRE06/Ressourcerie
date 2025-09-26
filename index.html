@@ -3,17 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ressourcerie Mobilité Douce</title>
+  <title>Roule & Co</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <!-- Header -->
   <header>
-    <div class="logo"> Roule & Co </div>
+    <a href="#accueil" class="site-name">Roule & Co</a>
+    <div class="logo">
+      <img src="ressources/Images/logo.webp" alt="Roule & Co Logo">
+    </div>
     <nav>
       <ul>
-        <li><a href="#accueil">Accueil</a></li>
         <li><a href="#about">Qui sommes-nous</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#catalogue">Catalogue</a></li>
@@ -25,7 +27,7 @@
 
   <!-- Accueil -->
   <section id="accueil" class="hero">
-    <h1>🚲 Donnez une seconde vie à vos moyens de transport !</h1>
+    <h1>Donnez une seconde vie à vos moyens de transport !</h1>
     <p>Vélos, trottinettes, rollers, hoverboards et bien plus... Reconditionnés pour une mobilité douce, écologique et accessible à tous.</p>
     <a href="#services" class="btn">Découvrir nos services</a>
   </section>
@@ -33,8 +35,10 @@
   <!-- Qui sommes-nous -->
   <section id="about">
     <h2>Qui sommes-nous ?</h2>
-    <p>Nous sommes une ressourcerie dédiée à la mobilité douce. Notre mission est de réduire les déchets, promouvoir l’économie circulaire et rendre la mobilité écologique accessible à tous.</p>
-    <div class="values">
+    <p>Nous sommes 12 étudiants et avons créé Roule&Co dans le cadre d’un projet inter‑étudiants dédié au développement durable.
+<br><b>Notre objectif :</b> imaginer une ressourcerie de mobilité douce pour donner une seconde vie aux engins et réduire les déchets. </p>
+    <br>
+<div class="values">
       <div>♻️ Écologie</div>
       <div>🤝 Solidarité</div>
       <div>🚀 Accessibilité</div>
@@ -65,8 +69,8 @@
     <h2>Notre Catalogue</h2>
     <div class="cards">
       <div class="card">
-        <h3>🚲 Vélo électrique</h3>
-        <p>350 €</p>
+        <h3>🚲 Vélo classique</h3>
+        <p>150 €</p>
       </div>
       <div class="card">
         <h3>🛴 Trottinette classique</h3>
@@ -91,60 +95,49 @@
 
   <!-- Contact -->
   <section id="contact">
-  <h2>Contact</h2>
-
-  <form id="contact-form" action="https://formspree.io/f/mgvnvbro" method="POST">
-    <input type="text" name="name" placeholder="Nom" required>
-    <input type="email" name="email" placeholder="Email" required>
-    <textarea name="message" placeholder="Votre message" required></textarea>
-    <button type="submit">Envoyer</button>
-  </form>
-
-  <div id="form-message" style="display: none; color: green;">
-    Votre message a été envoyé 📩
-  </div>
-  <br>
-  <p>📍 1 Route de Vallbrillant 13590 </p>
-  <br>
-  <p>🕒 Lundi–Samedi : 10h – 18h</p>
-  <br>
-  <p>📧 contacte.rouleco@gmail.com</p>
-</section>
+    <h2>Contact</h2>
+    <form id="contact-form" action="https://formspree.io/f/mgvnvbro" method="POST">
+      <input type="text" name="name" placeholder="Nom" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="message" placeholder="Votre message" required></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+    <div id="form-message" style="display: none; color: green;">
+      Votre message a été envoyé 📩
+    </div>
+    <br>
+    <p>📍 1 Route de Vallbrillant 13590 </p>
+    <br>
+    <p>🕒 Lundi–Samedi : 10h – 18h</p>
+    <br>
+    <p>📧 contacte.rouleco@gmail.com</p>
+  </section>
 
 <script>
   const form = document.getElementById('contact-form');
   const messageDiv = document.getElementById('form-message');
 
   form.addEventListener('submit', async (e) => {
-    e.preventDefault(); // Empêche le rechargement / redirection par défaut
-
+    e.preventDefault();
     const formData = new FormData(form);
-
     const response = await fetch(form.action, {
       method: form.method,
       body: formData,
-      headers: {
-        'Accept': 'application/json'
-      }
+      headers: { 'Accept': 'application/json' }
     });
-
     if (response.ok) {
-     
-      messageDiv.style.display = 'block';  // afficher le message
+      messageDiv.style.display = 'block';
     } else {
-      // il y a eu une erreur
       const data = await response.json();
-      // tu peux afficher les erreurs
       alert("Oops ! Une erreur est survenue.");
       console.log(data);
     }
   });
 </script>
 
-
   <!-- Footer -->
   <footer>
-    <p>© 2025 Roule & Co  – Tous droits réservés.</p>
+    <p>© 2025 Roule & Co – Tous droits réservés.</p>
     <p>Suivez-nous : 🌐 Facebook | Instagram | TikTok</p>
   </footer>
 
