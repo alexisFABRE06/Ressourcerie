@@ -42,7 +42,7 @@ nav a:hover {
 
 /* Hero */
 .hero {
-  background: url('ressources/Images/fond.jpg') center/cover no-repeat;
+  background: url('ressources/Images/fond.webp') center/cover no-repeat;
   height: 90vh;
   display: flex;
   flex-direction: column;
