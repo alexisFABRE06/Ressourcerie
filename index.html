@@ -101,12 +101,14 @@
   </form>
 
   <div id="form-message" style="display: none; color: green;">
-    Votre message a été envoyé 😊
+    Votre message a été envoyé 📩
   </div>
-
-  <p>📍 123 Rue de l'Atelier, Aix-en-Provence</p>
-  <p>🕒 Mar–Sam : 10h – 18h</p>
-  <p>📧 contact@ressourcerie-mobilite.fr</p>
+  <br>
+  <p>📍 1 Route de Vallbrillant 13590 </p>
+  <br>
+  <p>🕒 Lundi–Samedi : 10h – 18h</p>
+  <br>
+  <p>📧 contacte.rouleco@gmail.com</p>
 </section>
 
 <script>
@@ -127,8 +129,7 @@
     });
 
     if (response.ok) {
-      // tout s'est bien passé
-      form.style.display = 'none';  // cacher le formulaire
+     
       messageDiv.style.display = 'block';  // afficher le message
     } else {
       // il y a eu une erreur
