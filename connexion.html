@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Connexion – Roule & Co</title>
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+  <a href="index.html" class="btn-retour">← Retour</a>
+  <div class="login-container">
+  
+    <h2>Connexion</h2>
+    <form id="login-form">
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="password" placeholder="Mot de passe" required>
+      <button type="submit">Se connecter</button>
+    </form>
+    <div class="switch">
+      Pas encore de compte ? <a id="show-register">Inscription</a>
+    </div>
+    <form id="register-form" style="display:none;">
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="password" placeholder="Mot de passe" required>
+      <button type="submit">S'inscrire</button>
+    </form>
+    <div class="switch" id="back-login" style="display:none;">
+      Déjà inscrit ? <a id="show-login">Connexion</a>
+    </div>
+  </div>
+  <script>
+  // Redirection après soumission (connexion ou inscription)
+  document.getElementById('login-form').onsubmit = function(e) {
+    e.preventDefault();
+    window.location.href = "index.html";
+  };
+  document.getElementById('register-form').onsubmit = function(e) {
+    e.preventDefault();
+    window.location.href = "index.html";
+  };
+  // Switch entre connexion et inscription
+  const titre = document.querySelector('.login-container h2');
+  document.getElementById('show-register').onclick = function() {
+    document.getElementById('login-form').style.display = 'none';
+    document.querySelector('.switch').style.display = 'none';
+    document.getElementById('register-form').style.display = 'block';
+    document.getElementById('back-login').style.display = 'block';
+    titre.textContent = "Inscription"; // <-- Ajouté
+  };
+  document.getElementById('show-login').onclick = function() {
+    document.getElementById('login-form').style.display = 'block';
+    document.querySelector('.switch').style.display = 'block';
+    document.getElementById('register-form').style.display = 'none';
+    document.getElementById('back-login').style.display = 'none';
+    titre.textContent = "Connexion"; // <-- Ajouté
+  };
+</script>
+</body>
+</html>

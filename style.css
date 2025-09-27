@@ -1,9 +1,14 @@
-/* Reset */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+html, body {
+  overflow-x: hidden; 
+}
+
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
@@ -18,20 +23,19 @@ html {
 /* Header */
 header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 2rem; /* agrandi */
+  padding: 1rem 2rem;
   background: #2e7d32;
   color: white;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
+  padding-left: 1.5rem
 }
 .site-name {
-  position: absolute;
-  
-  left: 60px; 
+  position: static;
   font-weight: bold;
   text-decoration: none;
   color: white;
@@ -43,7 +47,8 @@ header .logo {
   transform: translateX(-50%);
 }
 header .logo img {
-  height: 60px; /* un peu plus grand */
+  max-width: 100%; 
+  height: 60px;
   width: auto;
   display: block;
 }
@@ -65,7 +70,6 @@ nav a:hover {
 }
 
 /* Hero */
-/* ...existing code... */
 .hero {
   background: url('ressources/Images/fond.webp') center/cover no-repeat;
   height: 100vh;
@@ -76,10 +80,8 @@ nav a:hover {
   text-align: center;
   padding: 2rem;
   color: white;
-  padding-top: 90px; /* remplace margin-top par padding-top */
-  /* margin-top: 90px;  <-- supprime cette ligne */
+  padding-top: 90px; 
 }
-/* ...existing code... */
 .hero h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
@@ -113,13 +115,17 @@ h2 {
   justify-content: center;
   gap: 1.5rem;
   flex-wrap: wrap;
+  width: 100%;
+  padding: 0 1rem; 
 }
 .card {
   background: #f9f9f9;
   padding: 1.5rem;
   border-radius: 8px;
   flex: 1 1 250px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  min-width: 0; 
+  max-width: 100%; 
 }
 
 /* Values */
@@ -139,7 +145,9 @@ form {
   max-width: 400px;
   margin: auto;
 }
-input, textarea, button {
+input,
+textarea,
+button {
   padding: 0.8rem;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -164,19 +172,16 @@ footer {
 }
 
 .login-link {
-  position: absolute;
-  left: 0.8rem;
-  top: 50%;
-  transform: translateY(-50%);
+  position: static;
+  margin-left: 1rem;
   display: flex;
   align-items: center;
 }
 .login-icon {
-  width: 36px;
-  height: 36px;
-  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
+  width: 24px;
+  height: 24px;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
 }
-
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -188,5 +193,118 @@ footer {
     top: 90px;
     display: none;
     padding: 1rem;
+    width: 100vw; 
+    box-sizing: border-box;
+  }
+}
+
+/* connexion */
+
+.login-container {
+  max-width: 350px;
+  margin: 120px auto 0 auto;
+  padding: 2rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+.login-container h2 {
+  margin-bottom: 1.5rem;
+  color: #2e7d32;
+}
+.login-container input {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.8rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.login-container button {
+  width: 100%;
+  background: #2e7d32;
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.login-container button:hover {
+  background: #1b5e20;
+}
+.login-container .switch {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+.login-container .switch a {
+  color: #2e7d32;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.btn-retour {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background: #2e7d32;
+  color: #fff;
+  padding: 0.5rem 1.2rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  z-index: 10;
+}
+.btn-retour:hover {
+  background: #1b5e20;
+}
+
+@media (max-width: 480px) {
+ 
+  header {
+    padding: 0.8rem 1.2rem;
+  }
+  header .logo img {
+    height: 44px;
+    max-width: 100px;
+  }
+  nav a {
+    font-size: 1.15rem;
+    padding: 0.5rem 0.7rem;
+  }
+  .site-name {
+    margin-left: 0;
+    font-size: 1.2rem;
+  }
+
+
+  .login-container {
+    margin-top: 80px;
+    padding: 1.5rem;
+    width: 90%;
+    max-width: none;
+  }
+
+  .login-container input,
+  .login-container button {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  .btn-retour {
+    font-size: 0.9rem;
+    padding: 0.4rem 1rem;
+    top: 16px;
+    left: 16px;
+  }
+  .site-name {
+    margin-left: -0.5rem;
+    font-size: 1.1rem;
+    
+  }
+  footer {
+    padding: 0.5rem 0.5rem;
+    font-size: 0.7rem;
+    margin-top: 1rem;
   }
 }
